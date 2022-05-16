@@ -1,0 +1,17 @@
+name: Projeto Integrador II
+on: [pull_request, push]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build
+      run: |
+        docker-compose build --no-cache
+
+    - name: Tests
+      run: |
+        docker-compose run web pytest -s
