@@ -8,10 +8,20 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Build
+    - name: Install-Requirements
       run: |
-        docker-compose build --no-cache
+        pip install --upgrade pip
+        pip install -r requirements.txt
 
     - name: Tests
       run: |
-        docker-compose run web pytest -s
+        pytest -s
+
+    # TODO #001 - Configurar o CI/CD (GitHub Actions) lendo as var. do .env
+    #- name: Build
+    #  run: |
+    #    docker-compose build --no-cache
+
+    #- name: Tests
+    #  run: |
+    #    docker-compose run web pytest -s
