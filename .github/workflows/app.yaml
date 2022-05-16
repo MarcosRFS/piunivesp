@@ -13,10 +13,6 @@ jobs:
         pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Tests
-      run: |
-        pytest -s
-
     # TODO #001 - Configurar o CI/CD (GitHub Actions) lendo as var. do .env
     #- name: Build
     #  run: |
